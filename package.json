@@ -1,0 +1,32 @@
+{
+  "name": "ai-chat-app",
+  "version": "1.0.0",
+  "description": "Modern AI Chat Application built with React + TypeScript + react-markdown + Cloudflare Workers + GraphQL",
+  "private": true,
+  "workspaces": [
+    "packages/frontend",
+    "packages/backend"
+  ],
+  "scripts": {
+    "dev": "npm run dev --workspace=packages/frontend",
+    "build": "npm run build --workspace=packages/frontend && npm run build --workspace=packages/backend",
+    "deploy:worker": "npm run deploy --workspace=packages/backend",
+    "dev:worker": "npm run dev --workspace=packages/backend",
+    "type-check": "npm run type-check --workspace=packages/frontend",
+    "lint": "npm run lint --workspace=packages/frontend && npm run lint --workspace=packages/backend"
+  },
+  "keywords": [
+    "ai",
+    "chat",
+    "react",
+    "typescript",
+    "graphql",
+    "cloudflare-workers"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0"
+  }
+}
