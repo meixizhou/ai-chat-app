@@ -1,0 +1,18 @@
+name = "ai-chat-worker"
+main = "src/index.ts"
+compatibility_date = "2023-08-07"
+
+[vars]
+ENVIRONMENT = "development"
+
+[[env.production]]
+name = "ai-chat-worker-prod"
+
+# Environment variables (add your OpenAI API key here)
+# OPENAI_API_KEY = "your_openai_api_key"
+
+[build]
+command = "npm run build"
+
+[dev]
+port = 8787
