@@ -16,6 +16,7 @@ app.use('*', async (c, next) => {
         'http://localhost:3000',
         'http://localhost:5173',
         'https://ai-chat-app.pages.dev',
+        'https://ai-chat-app-8pc.pages.dev',
         ...(c.env.ALLOWED_ORIGINS?.split(',') || [])
       ]
       
