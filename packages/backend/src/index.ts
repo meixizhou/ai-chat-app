@@ -31,7 +31,7 @@ const app = new Hono<{ Bindings: Env }>()
 //   return corsHandler(c, next)
 // })
 
-app.use('*', cors())
+app.use('*', cors());
 
 // Health check endpoint
 app.get('/', (c) => {
