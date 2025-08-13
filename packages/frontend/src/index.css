@@ -39,9 +39,9 @@
 }
 
 /* Markdown styles */
-.markdown-content {
+/* .markdown-content {
   @apply prose prose-sm max-w-none;
-}
+} */
 
 .markdown-content h1 {
   @apply text-xl font-bold mb-2;
