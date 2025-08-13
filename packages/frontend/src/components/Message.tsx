@@ -12,7 +12,7 @@ interface MessageComponentProps {
 
 export const MessageComponent: React.FC<MessageComponentProps> = ({ message }) => {
   const isUser = message.role === 'user'
-
+  
   return (
     <div className={clsx(
       'flex gap-3 p-4 animate-slide-up',
@@ -35,12 +35,8 @@ export const MessageComponent: React.FC<MessageComponentProps> = ({ message }) =
             <ReactMarkdown
               remarkPlugins={[remarkGfm, remarkBreaks]}
               components={{
-                code({ node, inline, className, children, ...props }) {
-                  return inline ? (
-                    <code className={className} {...props}>
-                      {children}
-                    </code>
-                  ) : (
+                code({ node, className, children, ...props }) {
+                  return(
                     <pre className="bg-gray-900 text-white p-4 rounded-lg overflow-x-auto">
                       <code className={className} {...props}>
                         {children}
