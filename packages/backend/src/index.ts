@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Hono } from 'hono'
-import { cors } from ''hono/cors
+import { cors } from 'hono/cors'
 import { createYoga } from 'graphql-yoga'
 import { createSchema } from './graphql/schema'
 import { Env } from './types'
@@ -31,7 +31,7 @@ const app = new Hono<{ Bindings: Env }>()
 //   return corsHandler(c, next)
 // })
 
-app.use('*', cors());
+app.use('*', cors())
 
 // Health check endpoint
 app.get('/', (c) => {
@@ -48,7 +48,7 @@ app.all('/graphql', async (c) => {
     schema: createSchema(c.env),
     graphqlEndpoint: '/graphql',
     landingPage: true,
-    cors: false, // We handle CORS above
+    cors: fasle, // We handle CORS above
     fetchAPI: {
       Request: Request,
       Response: Response,
