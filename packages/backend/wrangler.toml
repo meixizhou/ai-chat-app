@@ -16,3 +16,11 @@ command = "npm run build"
 
 [dev]
 port = 8787
+
+# wrangler.toml (wrangler v3.88.0^)
+[observability.logs]
+enabled = true
+
+
+
+

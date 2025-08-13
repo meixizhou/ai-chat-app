@@ -1,6 +1,6 @@
 // @ts-nocheck
 import { Hono } from 'hono'
-import { cors } from 'hono/cors'
+import { cors } from ''hono/cors
 import { createYoga } from 'graphql-yoga'
 import { createSchema } from './graphql/schema'
 import { Env } from './types'
@@ -8,28 +8,30 @@ import { Env } from './types'
 const app = new Hono<{ Bindings: Env }>()
 
 // CORS configuration
-app.use('*', async (c, next) => {
-  const corsHandler = cors({
-    origin: (origin) => {
-      // Allow requests from localhost and any configured origins
-      const allowedOrigins = [
-        'http://localhost:3000',
-        'http://localhost:5173',
-        'https://ai-chat-app.pages.dev',
-        'https://ai-chat-app-8pc.pages.dev',
-        ...(c.env.ALLOWED_ORIGINS?.split(',') || [])
-      ]
-      console.log(origin, 'origin====')
-      // return allowedOrigins.includes(origin) || !origin
-      return true
-    },
-    allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
-    allowHeaders: ['Content-Type', 'Authorization'],
-    credentials: true,
-  })
+// app.use('*', async (c, next) => {
+//   const corsHandler = cors({
+//     origin: (origin) => {
+//       // Allow requests from localhost and any configured origins
+//       const allowedOrigins = [
+//         'http://localhost:3000',
+//         'http://localhost:5173',
+//         'https://ai-chat-app.pages.dev',
+//         'https://ai-chat-app-8pc.pages.dev',
+//         ...(c.env.ALLOWED_ORIGINS?.split(',') || [])
+//       ]
+//       console.log(origin, 'origin====')
+//       // return allowedOrigins.includes(origin) || !origin
+//       return true
+//     },
+//     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+//     allowHeaders: ['Content-Type', 'Authorization'],
+//     credentials: true,
+//   })
   
-  return corsHandler(c, next)
-})
+//   return corsHandler(c, next)
+// })
+
+app.use('*', cors())
 
 // Health check endpoint
 app.get('/', (c) => {
@@ -46,7 +48,7 @@ app.all('/graphql', async (c) => {
     schema: createSchema(c.env),
     graphqlEndpoint: '/graphql',
     landingPage: true,
-    cors: true, // We handle CORS above
+    cors: false, // We handle CORS above
     fetchAPI: {
       Request: Request,
       Response: Response,
