@@ -19,8 +19,9 @@ app.use('*', async (c, next) => {
         'https://ai-chat-app-8pc.pages.dev',
         ...(c.env.ALLOWED_ORIGINS?.split(',') || [])
       ]
-      
-      return allowedOrigins.includes(origin) || !origin
+      console.log(origin, 'origin====')
+      // return allowedOrigins.includes(origin) || !origin
+      return true
     },
     allowMethods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
     allowHeaders: ['Content-Type', 'Authorization'],
