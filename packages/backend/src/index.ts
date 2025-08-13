@@ -48,7 +48,7 @@ app.all('/graphql', async (c) => {
     schema: createSchema(c.env),
     graphqlEndpoint: '/graphql',
     landingPage: true,
-    cors: fasle, // We handle CORS above
+    cors: false, // We handle CORS above
     fetchAPI: {
       Request: Request,
       Response: Response,
